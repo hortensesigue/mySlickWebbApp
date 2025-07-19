@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slickwebapplication
+  labels:
+    name: slickwebapplication-l
+spec:
+  replicas: 2
+  selector: 
+    matchLabels:
+      name: slickwebapplication-l
+  template:
+    metadata:
+      labels:
+        name: slickwebapplication-l
+    spec:
+      containers:
+        - name: slickwebapplication-con
+          image: hortensehouendji/slickwebapp:v12
+          ports:
+            - containerPort: 80
